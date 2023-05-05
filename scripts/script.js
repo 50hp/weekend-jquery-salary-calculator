@@ -4,12 +4,11 @@ function onReady() {
   console.log('hello');
 
   $('#submitBtn').on('click',addToTable);
-
-
+  $('#tbody').on('click', '#delBtn', deleteRow);
 
 }
 
-
+let inputArray = [];
 
 function addToTable(event) {
 
@@ -28,7 +27,7 @@ function addToTable(event) {
  inputThree = $('#inputThree').val();
  inputFour = $('#inputFour').val();
  inputFive = $('#inputFive').val();
- console.log(inputOne, inputTwo, inputThree, inputFour, inputFive);
+ //console.log(inputOne, inputTwo, inputThree, inputFour, inputFive);
 
   $('#tbody').append(`
   <tr>
@@ -40,6 +39,11 @@ function addToTable(event) {
     <td><button id="delBtn">Delete</button></td>
   </tr>
   `);
+  
+
+  inputArray.push(inputFive);
+
+
 
   $('#inputOne').val('');
   $('#inputTwo').val('');
@@ -47,5 +51,18 @@ function addToTable(event) {
   $('#inputFour').val('');
   $('#inputFive').val('');
 
-
+    console.log(inputArray);
+  
 }
+
+function deleteRow(){
+      $('#delBtn').parent().parent().remove();
+}
+
+// function annualSalaryTotal(){
+    
+    
+
+
+
+// }
