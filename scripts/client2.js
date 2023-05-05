@@ -121,7 +121,7 @@ function calculateIndividualEmployeeBonus( employee ) {
 
   // return new object with bonus results
   return staffBonus;
-}
+}1
 
 console.log(calculateIndividualEmployeeBonus('Atticus'));
 console.log(calculateIndividualEmployeeBonus('Jem'));
