@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Bonus Calculator Object Challenge</title>
+    <link href="styles/style.css" rel="stylesheet">
     <script src="scripts/jquery-3.6.4.js"></script>
     <script src="scripts/script.js"></script>
   </head>
@@ -12,14 +13,35 @@
       <form>
         <input type="text" name="inputOne" id="inputOne" placeholder="First Name">
         <input type="text" name="inputTwo" id="inputTwo" placeholder="Last Name">
-        <input type="text" name="inputThree" id="inputThree" placeholder="ID">
+        <input type="number" name="inputThree" id="inputThree" placeholder="ID">
         <input type="text" name="inputFour" id="inputFour" placeholder="Title">
-        <input type="text" name="inputFive" id="inputFive" placeholder="Annual Salary">
+        <input type="number" name="inputFive" id="inputFive" placeholder="Annual Salary">
         <button id="submitBtn">Submit</button>
-
-
       </form>
     <h3>Employees</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+            <th>button</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody">
+
+
+
+
+
+
+        </tbody>
+
+
+      </table>
 
 
   </body>
