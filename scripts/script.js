@@ -8,7 +8,7 @@ function onReady() {
 
 }
 
-let inputArray = [];
+let inputArray = 0;
 
 function addToTable(event) {
 
@@ -41,7 +41,7 @@ function addToTable(event) {
   `);
   
 
-  inputArray.push(inputFive);
+   inputArray += Math.round(inputFive / 12);
 
 
 
@@ -52,17 +52,31 @@ function addToTable(event) {
   $('#inputFive').val('');
 
     console.log(inputArray);
-  
+ 
+    displayTotalMonthly();
 }
 
 function deleteRow(){
       $('#delBtn').parent().parent().remove();
 }
 
+
+function displayTotalMonthly(){
+
+      if(inputArray > 20000){
+        $('#totalMonthly').empty()
+        $('#totalMonthly').append(`
+        <h4 style="background-color:red";>Total Monthly:
+         $ ${inputArray}
+         </h4>
+         
+         `);
+      }else{
+      $('#totalMonthly').text(`Total Monthly: $ ${inputArray}`);
+      }
+
+}
 // function annualSalaryTotal(){
     
-    
-
-
 
 // }
