@@ -61,25 +61,6 @@
 // }
 
 
-// function displayTotalMonthly(){
-
-//       if(inputArray > 20000){
-//         $('#totalMonthly').empty()
-//         $('#totalMonthly').append(`
-//         <h4 style="background-color:red";>Total Monthly:
-//          $ ${inputArray}
-//          </h4>
-         
-//          `);
-//       }else{
-//       $('#totalMonthly').text(`Total Monthly: $ ${inputArray}`);
-//       }
-
-// }
-// function annualSalaryTotal(){
-    
-
-// }
 
 
 $(onReady)
@@ -87,9 +68,9 @@ $(onReady)
 function onReady() {
   console.log('hello');
 
-  $('#submitBtn').on('click',addToTable);
-   $('#tbody').on('click', '#delBtn', deleteRow);
-
+    $('#submitBtn').on('click',addToTable);
+    $('#tbody').on('click', `#deleteBtn`, deleteRow);
+    displayTotalMonthly();
 }
 
 
@@ -135,19 +116,81 @@ function addToTable(event) {
             //     <td>${tableDataObject.inputThree}</td>
             //     <td>${tableDataObject.inputFour}</td>
             //     <td>${tableDataObject.inputFive}</td>
-            //     <td><button id="delBtn">Delete</button></td>
+            //     <td><button id="deleteBtn" data-last-value="${inputThree}">Delete</button></td>
             //   </tr>`);
+
             
   tableDataArray.push( tableDataObject );
   console.log( tableDataArray );
+  displayTotalMonthly();
 }
 
+let tableRow;
 
 function deleteRow() {
 
-let tableRowData = $(this).parent().parent().first().text();
-console.log( tableRowData);
 
+      let tableRowData = $(this).data();
+      tableRow = tableRowData.lastValue;
+      let deletedRow = [];
 
+      $(this).parent().parent().remove();
+
+      deleteItem(tableDataArray, tableRow);
+      displayTotalMonthly();
 
 }
+
+function deleteItem( array, value ){
+console.log(array);
+console.log(value);
+  for (let i=0; i < array.length; i++){
+    
+      if ( array[i].inputThree == value ){
+        console.log('hello');
+        tableDataArray.splice(i, 1);
+      }
+  }
+}
+
+function displayTotalMonthly(){
+  console.log('dispylayTotalMonthyl');
+let sumOfArray = 0;
+let array = [];
+
+      for (x of tableDataArray){
+        array.push(x.inputFive);
+      }
+
+console.log(array);
+
+sumOfArray = Math.round(sumArray( array )/12);
+console.log(sumOfArray);
+
+      if(sumOfArray > 20000){
+        $('#totalMonthly').empty()
+        $('#totalMonthly').append(`
+        <h4 style="background-color:red";>Total Monthly:
+         $ ${sumOfArray}
+         </h4>
+         
+         `);
+      }else{
+      $('#totalMonthly').text(`Total Monthly: $ ${sumOfArray}`);
+      }
+
+}
+
+function sumArray( array ) {
+let sum = 0;
+
+    for ( x of array ){
+        x = x/1;
+        sum += x;
+
+    }
+
+return sum;
+
+}
+
