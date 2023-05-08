@@ -63,6 +63,7 @@
 
 //______________________________Stretch Goal Solution_____________________________________________________
 //calls on ready function
+
 $(onReady)
 
 // on page load do this.
