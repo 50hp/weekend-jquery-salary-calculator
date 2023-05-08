@@ -69,7 +69,7 @@ $(onReady)
 function onReady() {
 
   $('#submitBtn').on('click', addToTable);
-  $('#tbody').on('click', `#deleteBtn`, deleteRow);
+  $('#tbody').on('click', `.deleteBtn`, deleteRow);
   displayTotalMonthly();
 }
 
@@ -120,13 +120,14 @@ function addToTable(event) {
             //     <td>${tableDataObject.inputThree}</td>
             //     <td>${tableDataObject.inputFour}</td>
             //     <td>${tableDataObject.inputFive}</td>
-            //     <td><button id="deleteBtn" data-last-value="${inputThree}">Delete</button></td>
+            //     <td><button class="deleteBtn" data-last-value="${inputThree}">Delete</button></td>
             //   </tr>`);
 
   // pushes the object into the tableDataArray.
   tableDataArray.push(tableDataObject);
   //calls the function to total and display the monthly coast. 
   displayTotalMonthly();
+  console.log(tableDataArray);
 }
 //creates a row variable. 
 let tableRow;
@@ -144,6 +145,7 @@ function deleteRow() {
   deleteItem(tableDataArray, tableRow);
   //calls thee function to recount and run the math on monthly salary and displays that to the DOM.
   displayTotalMonthly();
+  console.log(tableDataArray);
 
 }
 // function to remove a specified object from the specified array. 
@@ -151,10 +153,11 @@ function deleteItem(array, value) {
   for (let i = 0; i < array.length; i++) {
 
     if (array[i].inputThree == value) {
-      console.log('hello');
+      // console.log('hello');
       tableDataArray.splice(i, 1);
     }
   }
+  // console.log(tableDataArray);
 }
 
 //function to do the math and append the DOM for total Monthly Salary.
